@@ -20,21 +20,20 @@
     <!-- Marker with a plane to display video texture -->
     <a-marker preset="hiro">
       <!-- Display video as texture on a plane -->
-      <a-plane 
-        src="#video-texture" 
-        position="0 1 0" 
-        rotation="-90 0 0" 
-        width="2" 
-        height="1">
-      </a-plane>
+      <a-video 
+        src="#my-video" 
+        width="1" 
+        height="0.75" 
+        position="0 0.5 0"
+        rotation="90 0 0">
+      </a-video>
     </a-marker>
 
     <a-entity camera></a-entity>
   </a-scene>
 
   <!-- Video element -->
-  <video id="video-texture" loop="true" autoplay="false" src="play.mp4" style="display: none" crossorigin
-  webkit-playsinline response-type="arraybuffer"></video>
+  <video id="my-video" src="demo.mp4" autoplay loop></video>
 
   <script>
     var videoEl = document.querySelector('#video-texture');
