@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web AR with Video</title>
 
   <!-- Include A-Frame and AR.js libraries -->
@@ -12,7 +12,10 @@
 <body style="margin: 0; overflow: hidden;">
 
   <!-- A-Frame Scene -->
-  <a-scene embedded arjs="sourceType: webcam;" device-orientation-permission-ui="enabled: false">
+  <a-scene vr-mode-ui="enabled: false;"
+  renderer="antialias: true; alpha: true; precision: medium;"
+  embedded
+  arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
     
     <!-- Marker with a plane to display video texture -->
     <a-marker preset="hiro">
