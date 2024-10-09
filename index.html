@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web AR with Video</title>
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
 
-  <!-- Include A-Frame and AR.js libraries -->
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.js"></script>
-</head>
 <body style="margin: 0; overflow: hidden;">
-
-  <!-- A-Frame Scene -->
-  <a-scene vr-mode-ui="enabled: false;"
-  renderer="antialias: true; alpha: true; precision: medium;"
-  embedded
-  arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
-    
-    <!-- Marker with a plane to display video texture -->
+  <a-scene embedded arjs>
+    <!-- Define a marker for AR -->
     <a-marker type="pattern" url="tes.patt">
-      <!-- Display video as texture on a plane -->
+      <!-- Place a video element inside the AR marker -->
       <a-video 
         src="#video-texture" 
         width="1" 
@@ -28,10 +14,11 @@
       </a-video>
     </a-marker>
 
+    <!-- Camera setup -->
     <a-entity camera></a-entity>
   </a-scene>
 
-  <!-- Video element -->
+  <!-- Define the video element -->
   <video id="video-texture" loop="true" autoplay="false" src="teaser1.mp4" style="display: none" crossorigin
   webkit-playsinline response-type="arraybuffer"></video>
 
@@ -48,6 +35,4 @@
       videoEl.pause();
     });
   </script>
-
 </body>
-</html>
