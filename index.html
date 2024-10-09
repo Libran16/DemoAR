@@ -4,13 +4,14 @@
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs>
     <!-- Define a marker for AR -->
-    <a-marker preset="hiro">
+    <a-marker type="pattern" url="tes.patt">
       <!-- Place a video element inside the AR marker -->
       <a-video 
         src="#my-video" 
         width="1" 
         height="1.75" 
-        position="0 1 0">
+        position="0 0.5 0"
+        rotation="-90 0 0" >
       </a-video>
     </a-marker>
 
@@ -19,5 +20,19 @@
   </a-scene>
 
   <!-- Define the video element -->
-  <video id="my-video" src="play.mp4" autoplay loop></video>
+  <video id="my-video" src="teaser1.mp4" loop="true" autoplay="false"></video>
+
+  <script>
+    var videoEl = document.querySelector('#my-video');
+
+    // Play video when the marker is found
+    document.querySelector('a-marker').addEventListener('markerFound', function () {
+      videoEl.play();
+    });
+
+    // Pause video when the marker is lost
+    document.querySelector('a-marker').addEventListener('markerLost', function () {
+      videoEl.pause();
+    });
+  </script>
 </body>
