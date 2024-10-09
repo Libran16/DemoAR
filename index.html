@@ -20,13 +20,12 @@
     <!-- Marker with a plane to display video texture -->
     <a-marker type="pattern" url="tes.patt">
       <!-- Display video as texture on a plane -->
-      <a-plane 
+      <a-video 
         src="#video-texture" 
-        position="0 1 0" 
-        rotation="-90 0 0" 
         width="1" 
-        height="1.75">
-      </a-plane>
+        height="1.75" 
+        position="0 1 0">
+      </a-video>
     </a-marker>
 
     <a-entity camera></a-entity>
